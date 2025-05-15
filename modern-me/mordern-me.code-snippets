@@ -16,9 +16,9 @@
         "prefix": "classhpp",
         "description": "Create C++ class header based on filename",
         "body": [
-			"#ifndef ${TM_FILENAME_BASE}_H",
-			"#define ${TM_FILENAME_BASE}_H",
-			"",
+            "#ifndef ${1:${TM_FILENAME_BASE/([A-Z][a-z]+$)|((^|[A-Z])[a-z]+)/${1:/upcase}${2:/upcase}${2:+_}/gm}_${TM_FILENAME/^.*\\.([^\\.]*)$/${1:/upcase}/}}",
+            "# define ${1}",
+            "",
             "class ${TM_FILENAME_BASE}",
             "{",
             "    private:",
@@ -30,7 +30,7 @@
             "        ${TM_FILENAME_BASE} operator=(const ${TM_FILENAME_BASE} &rhs);",
             "};",
 			"",
-			"#endif // ${TM_FILENAME_BASE}_H"
+			"#endif // ${1}"
         ]
     },
 	"C++ Class Implementation from Filename": {
