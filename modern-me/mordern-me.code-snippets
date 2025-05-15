@@ -65,13 +65,16 @@
         "prefix": "classinterface",
         "description": "Create C++ pure virtual class header based on filename",
         "body": [
-            "#pragma once",
+            "#ifndef ${1:${TM_FILENAME_BASE/([A-Z][a-z]+$)|((^|[A-Z])[a-z]+)/${1:/upcase}${2:/upcase}${2:+_}/gm}_${TM_FILENAME/^.*\\.([^\\.]*)$/${1:/upcase}/}}",
+            "# define ${1}",
             "",
             "class ${TM_FILENAME_BASE}",
             "{",
             "    public:",
             "        virtual ~${TM_FILENAME_BASE}() {}",
-            "};"
+            "};",
+			"",
+			"#endif // ${1}"
         ]
     }
 }
