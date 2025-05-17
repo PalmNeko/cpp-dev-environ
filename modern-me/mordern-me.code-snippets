@@ -27,7 +27,7 @@
             "        ${TM_FILENAME_BASE}();",
             "        ${TM_FILENAME_BASE}(const ${TM_FILENAME_BASE} &other);",
             "        virtual ~${TM_FILENAME_BASE}();",
-            "        ${TM_FILENAME_BASE} operator=(const ${TM_FILENAME_BASE} &rhs);",
+            "        ${TM_FILENAME_BASE} &operator=(const ${TM_FILENAME_BASE} &rhs);",
             "};",
 			"",
 			"#endif // ${1}"
@@ -52,7 +52,7 @@
             "{",
             "}",
             "",
-            "${TM_FILENAME_BASE} ${TM_FILENAME_BASE}::operator=(const ${TM_FILENAME_BASE} &rhs)",
+            "${TM_FILENAME_BASE} &${TM_FILENAME_BASE}::operator=(const ${TM_FILENAME_BASE} &rhs)",
             "{",
             "    if (this != &rhs) {",
             "        // assignment logic",
